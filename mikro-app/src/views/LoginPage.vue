@@ -1,9 +1,9 @@
 <template>
-    <div class="login-register">
-        <div class="container align-items-center justify-content-center default" v-bind:class="{ smaller: showButton }" id="animationrow">
+    <div style="" class="login-register">
+        <div class="bg-cover container align-items-center justify-content-center default" v-bind:class="{ smaller: showButton }" id="animationrow">
             <transition class="transition" name="expand" mode="out-in" >
             <div class="row">
-                <div id="log-in-card" class="card col-sm-12 col-md-6 mx-auto rounded-0" style="" >
+                <div id="log-in-card" style="margin-top: 10%" class="card col-sm-12 col-md-6 mx-auto rounded-0">
                     <span id="card-outline" style="height:4px"></span>
 
                     <img class="card-img-top mx-auto" src="../assets/ui/mikro_logo_trim.png" alt="mikro logo" style="max-width:250px; padding:50px"> 
