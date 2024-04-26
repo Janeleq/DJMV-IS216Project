@@ -1,7 +1,7 @@
 <template>
     <div id="landing" class="container py-4 py-xl-5" style="width: 100%">
         <div class="border rounded border-0 d-flex flex-column justify-content-center align-items-center p-4 py-5"
-            style="width: 100%; height: 100vh; background: linear-gradient(rgba(0,123,255,0.2), rgba(0,123,255,0.2)) background-size: cover">
+            style="width: 100%; height: 100vh; background: linear-gradient(rgba(0,123,255,0.2), rgba(0,123,255,0.2)); background-size: cover">
             <div class="row">
                 <div
                     class="col-md-10 col-xl-8 text-center d-flex d-sm-flex d-md-flex justify-content-center align-items-center mx-auto justify-content-md-start align-items-md-center justify-content-xl-center">
