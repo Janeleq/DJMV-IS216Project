@@ -1,11 +1,10 @@
 {
   "name": "mikro-app",
   "version": "0.1.1",
-  "homepage": "https://janeleq.github.io/",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build --output dist",
+    "build": "vue-cli-service build --output public",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
