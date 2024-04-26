@@ -1,58 +1,60 @@
 <template>
-    <div id="CommunityEvent2" class="container py-4 py-xl-5">
-        <router-link to="/home">
-            <i class="bx bx-arrow-back"></i>
-        </router-link>
+  <div id="CommunityEvent2" class="container py-4 py-xl-5">
+    <router-link to="/home">
+      <i class="bx bx-arrow-back"></i>
+    </router-link>
 
-        <div class="card" style="font-size: 12px; height: ;">
-            <img class="card-img-top" src="../assets/ui/inflation_community.jpg" style="width: 100%; height: 50%" alt="Card image cap">
-            <div class="card-body">
-              <h5 class="card-title" style="font-size: 12px">HOW TO DIVERSIFY DURING HIGH INFLATION</h5>
-              <p class="card-text" style="font-size: 10px"><i class="bx bx-time"></i>&nbsp; TUESDAY, NOVEMBER 15TH<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;530PM - 645PM SGT<br/>📅&nbsp;Online Event</p>
-                <button class="btn btn-primary" style="font-size: 13px; color: white;" @click="comfirmRegister()">Register</button>
-                <br/>
-                <br/>
-                <p style=color:green>{{ message }} </p>
-            </div>
-           
-          </div>
+    <div class="card" style="font-size: 12px; height: ;">
+      <img class="card-img-top" src="../assets/ui/inflation_community.jpg" style="width: 100%; height: 50%"
+        alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title" style="font-size: 12px">HOW TO DIVERSIFY DURING HIGH INFLATION</h5>
+        <p class="card-text" style="font-size: 10px"><i class="bx bx-time"></i>&nbsp; TUESDAY, NOVEMBER
+          15TH<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;530PM - 645PM SGT<br />📅&nbsp;Online Event</p>
+        <button class="btn btn-primary" style="font-size: 13px; color: white;"
+          @click="comfirmRegister()">Register</button>
+        <br />
+        <br />
+        <p style=color:green>{{ message }} </p>
+      </div>
+
     </div>
-  </template>
+  </div>
+</template>
 
 <style>
-  body {
-    margin: 0;
-    padding: 0;
-  }
+body {
+  margin: 0;
+  padding: 0;
+}
 
-  *{
-    margin: 0;
-    padding: 0;
-  }
-
+* {
+  margin: 0;
+  padding: 0;
+}
 </style>
 
 <script>
-    export default 
-    {
-        name: 'CommunityEvent2',
+export default
+  {
+    name: 'CommunityEvent2',
 
-        data (){
-            return {
-                message: ""
-            }
-        },
+    data() {
+      return {
+        message: ""
+      }
+    },
 
-        components: {
-           
-        },
-        methods: {
-            comfirmRegister() {
-                this.message = "Comfirmed registration! See you there 😊"
-                return this.message
-            }
-        }
- 
+    components: {
 
-        }
+    },
+    methods: {
+      comfirmRegister() {
+        this.message = "Comfirmed registration! See you there 😊"
+        return this.message
+      }
+    }
+
+
+  }
 </script>

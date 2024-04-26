@@ -1,205 +1,208 @@
 <template>
-  <NavigationBar/>
+  <NavigationBar />
 
-    <div id="home" style="margin-left: 55px;">
-      <br/>
-      <div class="container">
+  <div id="home" style="margin-left: 55px;">
+    <br />
+    <div class="container">
       <h3 class="m-0">{{ callGreeting() }}</h3>
       <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
-       
+
         <div class="row">
           <h6 class="mt-4 mb-1" style="font-weight: bold">Daily Brief 📰</h6>
           <small class="text-muted" style="font-size: 10px">Insights curated specially for you</small>
-          <hr/>
+          <hr />
         </div>
 
         <div class="carousel-inner">
           <div class="carousel-item active" data-bs-interval="10000">
-            <img :src= headlines[0].urlToImage class="d-block w-100 p-0" alt="...">
+            <img :src=headlines[0].urlToImage class="d-block w-100 p-0" alt="...">
             <!-- <a href={{headlines[0].url}}>Click me</a> -->
             <div class="carousel-caption d-block">
               <h4 style="font-size: 15px;"></h4>
               <p class="" style="margin-top:5px">{{ headlines[0].title }}</p>
             </div>
           </div>
-          <div v-for="headline of headlines.splice(1, 9)" :key=headline.id class="carousel-item" data-bs-interval="5000">
-            <img :src= headline.urlToImage class="d-block w-100 p-0" alt="...">
+          <div v-for="headline of headlines.splice(1, 9)" :key=headline.id class="carousel-item"
+            data-bs-interval="5000">
+            <img :src=headline.urlToImage class="d-block w-100 p-0" alt="...">
             <div class="carousel-caption d-md-block">
               <h4 style="font-size: 15px;">{{ headline.title }}</h4>
               <!-- <p>Some representative placeholder content for the second slide.</p> -->
             </div>
           </div>
         </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval"
+          data-bs-slide="prev">
           <span class="carousel-control-prev-icon" aria-hidden="true"></span>
           <span class="visually-hidden">Previous</span>
 
         </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval"
+          data-bs-slide="next">
           <span class="carousel-control-next-icon" aria-hidden="true"></span>
           <span class="visually-hidden">Next</span>
         </button>
       </div>
-    
-    <div class="row">
-      <h6 class="mt-4 mb-1" style="font-weight: bold">Community 🏠</h6>
-      <small class="text-muted" style="font-size: 10px">Find out the events happening in the  community</small>
-      <hr/>
-      <div class="mt-2 col-sm-6 col-md-3">
-        <div class="card" style="font-size: 12px; height: 300px;">
-          <img class="card-img-top" src="../assets/ui/crypto_community.jpg" style="height: 50%" alt="Card image cap">
-          <div class="card-body">
-            <h5 class="card-title" style="font-size: 12px">HOW TO INVEST IN ECO FRIENDLY CRYPTO</h5>
-            <p class="card-text" style="font-size: 10px"><i class="bx bx-time"></i> &nbsp;TUESDAY, NOVEMBER 15TH<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;230PM - 330PM SGT<br/>📅&nbsp;Online Event</p>
-            <router-link to="/CommunityEvent1">
-              <a href="" class="btn btn-primary" style="font-size: 13px; color: white;">Find out more</a>
-            </router-link>
+
+      <div class="row">
+        <h6 class="mt-4 mb-1" style="font-weight: bold">Community 🏠</h6>
+        <small class="text-muted" style="font-size: 10px">Find out the events happening in the community</small>
+        <hr />
+        <div class="mt-2 col-sm-6 col-md-3">
+          <div class="card" style="font-size: 12px; height: 300px;">
+            <img class="card-img-top" src="../assets/ui/crypto_community.jpg" style="height: 50%" alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title" style="font-size: 12px">HOW TO INVEST IN ECO FRIENDLY CRYPTO</h5>
+              <p class="card-text" style="font-size: 10px"><i class="bx bx-time"></i> &nbsp;TUESDAY, NOVEMBER
+                15TH<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;230PM - 330PM SGT<br />📅&nbsp;Online Event</p>
+              <router-link to="/CommunityEvent1">
+                <a href="" class="btn btn-primary" style="font-size: 13px; color: white;">Find out more</a>
+              </router-link>
             </div>
-        </div>
-      </div>
-      <div class="mt-2 col-sm-6 col-md-3">
-        <div class="card" style="font-size: 12px; height: 300px">
-          <img class="card-img-top" src="../assets/ui/inflation_community.jpg" style="height: 50%" alt="Card image cap">
-          <div class="card-body">
-            <h5 class="card-title" style="font-size: 12px">HOW TO DIVERSIFY DURING HIGH INFLATION</h5>
-            <p class="card-text" style="font-size: 10px"><i class="bx bx-time"></i> &nbsp;TUESDAY, NOVEMBER 15TH<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;530PM - 645PM SGT<br/>📅&nbsp;Online Event</p>
-            <router-link to="/CommunityEvent2">
-            <a href="#" class="btn btn-primary" style="font-size: 13px; color: white;">Find out more</a>
-            </router-link>
-           </div>
-        </div>
-      </div>
-      <div class="mt-2 col-sm-6 col-md-3">
-        <div class="card" style="font-size: 12px; height: 300px">
-          <img class="card-img-top" src="../assets/ui/dividend_community.jpg" style="height: 50%" alt="Card image cap">
-          <div class="card-body">
-            <h5 class="card-title" style="font-size: 12px">YOUR GUIDE TO DIVIDEND STOCKS</h5>
-            <p class="card-text" style="font-size: 10px"><i class="bx bx-time"></i> &nbsp;WEDNESDAY, NOVEMBER 23RD<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;130PM - 230PM SGT<br/>📅&nbsp;Online Event</p>
-          <router-link to="/CommunityEvent3">
-            <a href="#" class="btn btn-primary" style="font-size: 13px; color: white;">Find out more</a>
-          </router-link>
           </div>
         </div>
-      </div>
-      <div class="mt-2 col-sm-6 col-md-3">
-        <div class="card" style="font-size: 12px; height: 300px">
-          <img class="card-img-top" src="../assets/ui/recession_community.webp" style="height: 50%" alt="Card image cap">
-          <div class="card-body">
-            <h5 class="card-title" style="font-size: 12px">BONDS DURING A RECESSION SUMMARY</h5>
-            <p class="card-text" style="font-size: 10px"><i class="bx bx-time"></i> &nbsp;MONDAY, NOVEMBER 28TH<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;130PM - 230PM SGT<br/>📅&nbsp;Online Event</p>
-          <router-link to="/CommunityEvent4">
-            <a href="#" class="btn btn-primary" style="font-size: 13px; color: white;">Find out more</a>
-          </router-link>
+        <div class="mt-2 col-sm-6 col-md-3">
+          <div class="card" style="font-size: 12px; height: 300px">
+            <img class="card-img-top" src="../assets/ui/inflation_community.jpg" style="height: 50%"
+              alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title" style="font-size: 12px">HOW TO DIVERSIFY DURING HIGH INFLATION</h5>
+              <p class="card-text" style="font-size: 10px"><i class="bx bx-time"></i> &nbsp;TUESDAY, NOVEMBER
+                15TH<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;530PM - 645PM SGT<br />📅&nbsp;Online Event</p>
+              <router-link to="/CommunityEvent2">
+                <a href="#" class="btn btn-primary" style="font-size: 13px; color: white;">Find out more</a>
+              </router-link>
+            </div>
+          </div>
+        </div>
+        <div class="mt-2 col-sm-6 col-md-3">
+          <div class="card" style="font-size: 12px; height: 300px">
+            <img class="card-img-top" src="../assets/ui/dividend_community.jpg" style="height: 50%"
+              alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title" style="font-size: 12px">YOUR GUIDE TO DIVIDEND STOCKS</h5>
+              <p class="card-text" style="font-size: 10px"><i class="bx bx-time"></i> &nbsp;WEDNESDAY, NOVEMBER
+                23RD<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;130PM - 230PM SGT<br />📅&nbsp;Online Event</p>
+              <router-link to="/CommunityEvent3">
+                <a href="#" class="btn btn-primary" style="font-size: 13px; color: white;">Find out more</a>
+              </router-link>
+            </div>
+          </div>
+        </div>
+        <div class="mt-2 col-sm-6 col-md-3">
+          <div class="card" style="font-size: 12px; height: 300px">
+            <img class="card-img-top" src="../assets/ui/recession_community.webp" style="height: 50%"
+              alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title" style="font-size: 12px">BONDS DURING A RECESSION SUMMARY</h5>
+              <p class="card-text" style="font-size: 10px"><i class="bx bx-time"></i> &nbsp;MONDAY, NOVEMBER
+                28TH<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;130PM - 230PM SGT<br />📅&nbsp;Online Event</p>
+              <router-link to="/CommunityEvent4">
+                <a href="#" class="btn btn-primary" style="font-size: 13px; color: white;">Find out more</a>
+              </router-link>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-  </div>
 
-  </template>
-  
-  <script>
-  import axios from "axios";
-  import NavigationBar from "../components/NavigationBar";
-  export default 
+</template>
+
+<script>
+import axios from "axios";
+import NavigationBar from "../components/NavigationBar";
+export default
   {
-      name: 'HomePage',
+    name: 'HomePage',
 
-      components: {
-        NavigationBar
-      },
+    components: {
+      NavigationBar
+    },
 
-      data()
-      {
-          return{
-              headlines: []
-        
-          }
-      },
+    data() {
+      return {
+        headlines: []
 
-  
-      props: 
-      {
-        msg: String
-      },
+      }
+    },
 
-      methods:
-      {
-        created: function() {
-          let api_endpoint = "https://newsapi.org/v2/top-headlines?sources=bbc-news&apiKey=01d127c2f33a483c939e689920e7bab9"
-      
-          axios.get(api_endpoint).then(response =>
-            {
-              console.log(response.data.articles)
-              this.headlines = response.data.articles
-            })
+
+    props:
+    {
+      msg: String
+    },
+
+    methods:
+    {
+      created: function () {
+        let api_endpoint = "https://newsapi.org/v2/top-headlines?sources=bbc-news&apiKey=01d127c2f33a483c939e689920e7bab9"
+
+        axios.get(api_endpoint).then(response => {
+          console.log(response.data.articles)
+          this.headlines = response.data.articles
+        })
 
           .catch(error => {
             console.log(error)
           })
-        },
+      },
 
-        callGreeting () {
-      
-          if (new Date().getHours() > 6 && new Date().getHours() < 12) 
-          {
-            return "Good Morning, Chatur 🌞!"
-          }
+      callGreeting() {
 
-          else if  (new Date().getHours() > 11 && new Date().getHours() < 17)
-          {
-            return "Good Afternoon, Chatur ☕!"
-          }
-      
-          else 
-          {
-            return "Good Evening, Chatur 🌙!"
-          }
-          
+        if (new Date().getHours() > 6 && new Date().getHours() < 12) {
+          return "Good Morning, Chatur 🌞!"
         }
-      },
 
-      beforeMount() {
-        this.created()
-      },
+        else if (new Date().getHours() > 11 && new Date().getHours() < 17) {
+          return "Good Afternoon, Chatur ☕!"
+        }
 
-      mounted () {
-        this.callGreeting()
+        else {
+          return "Good Evening, Chatur 🌙!"
+        }
+
       }
-    
-  }
-  </script>
+    },
 
-  <!-- Add "scoped" attribute to limit CSS to this component only -->
-  <style scoped>
-  body {
-    top: 0 !important;
-  }
+    beforeMount() {
+      this.created()
+    },
 
-  h3 {
-    margin: 40px 0 0;
-  }
+    mounted() {
+      this.callGreeting()
+    }
 
-  ul {
-    list-style-type: none;
-    padding: 0;
   }
+</script>
 
-  li {
-    display: inline-block;
-    margin: 0 10px;
-  }
-  
-  a {
-    color: #42b983;
-  }
+<!-- Add "scoped" attribute to limit CSS to this component only -->
+<style scoped>
+body {
+  top: 0 !important;
+}
 
-  .card 
-  {
-    box-shadow: rgb(255, 255, 255) 10 10 10 10;
-    border: solid rgb(195, 190, 190) 1px;
-    background-color: rgb(227, 237, 247);
-  }
-  </style>
-  
+h3 {
+  margin: 40px 0 0;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  display: inline-block;
+  margin: 0 10px;
+}
+
+a {
+  color: #42b983;
+}
+
+.card {
+  box-shadow: rgb(255, 255, 255) 10 10 10 10;
+  border: solid rgb(195, 190, 190) 1px;
+  background-color: rgb(227, 237, 247);
+}
+</style>

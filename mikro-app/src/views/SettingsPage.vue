@@ -1,32 +1,31 @@
-<!-- To Do:
-Add dark mode functionality?
-Consider adding prompt for image. But as I understand, need a place to store the image. -->
-
-
 <template>
-    <NavigationBar/>
-    
+    <NavigationBar />
+
     <div id="bigContainer" style="margin-left: 55px;">
         <div class="container settings-background">
             <div class="settings-subbox">
-                <br/>
+                <br />
                 <h3 style="text-align: left">Settings</h3>
 
                 <div class="settingsBackground mb-4" style="height: 75px; font-size: 15px">
                     Invite your friends to join you on this investment journey today!
-                    <br/>
-                    <span style="font-size: 12px;" class="">Invite Link:</span>&nbsp;<a href="" style="padding: 2px; font-size: 10px;">https://mikroinvite?id=1011</a>
+                    <br />
+                    <span style="font-size: 12px;" class="">Invite Link:</span>&nbsp;<a href=""
+                        style="padding: 2px; font-size: 10px;">https://mikroinvite?id=1011</a>
                 </div>
-                <h2 style="font-size: 18px;" href="#editProfileModal" data-bs-toggle="modal"><img id="setting-icons" src="../assets/ui/user.png" alt="">&nbsp;Edit Profile</h2>                          
-                
+                <h2 style="font-size: 18px;" href="#editProfileModal" data-bs-toggle="modal"><img id="setting-icons"
+                        src="../assets/ui/user.png" alt="">&nbsp;Edit Profile</h2>
+
                 <!-- Edit Profile Modal id="editProfileModel" -->
-                <div class="modal fade" id="editProfileModal" tabindex="-1" aria-labelledby="editProfileModalLabel" aria-hidden="true">
+                <div class="modal fade" id="editProfileModal" tabindex="-1" aria-labelledby="editProfileModalLabel"
+                    aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered">
                         <div class="modal-content">
 
                             <div class="modal-header">
                                 <h1 class="modal-title fs-5" id="editProfileModalLabel">&nbsp; Edit Profile</h1>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
                             </div>
 
                             <div class="modal-body">
@@ -36,33 +35,40 @@ Consider adding prompt for image. But as I understand, need a place to store the
                                 </div>
                                 <div class="m-4 text-center">
                                     <!-- Set title (maybe title link to Achievements, like Salesforce) -->
-                                    <label for="editProfileUsername" class="" style="margin-left:10px; margin-bottom: 5px;">Change Username</label>
-                                    <input type="text" class="form-control text-center" id="editProfileUsername" placeholder="Chatur Ramalingam">
+                                    <label for="editProfileUsername" class=""
+                                        style="margin-left:10px; margin-bottom: 5px;">Change Username</label>
+                                    <input type="text" class="form-control text-center" id="editProfileUsername"
+                                        placeholder="Chatur Ramalingam">
                                 </div>
                             </div>
 
                             <div class="modal-footer d-flex justify-content-between">
-                                <button type="button" class="btn btn-primary pull-left" id="saveChangesBtn" style="" v-on:click="saveChangesBtnFunc()">{{saveChangesBtn}}</button>
-                                <button type="button" class="btn btn-secondary pull-right" data-bs-dismiss="modal" style="">Close</button>
+                                <button type="button" class="btn btn-primary pull-left" id="saveChangesBtn" style=""
+                                    v-on:click="saveChangesBtnFunc()">{{ saveChangesBtn }}</button>
+                                <button type="button" class="btn btn-secondary pull-right" data-bs-dismiss="modal"
+                                    style="">Close</button>
                             </div>
                         </div>
                     </div>
-                </div>  
-                <hr/>
+                </div>
+                <hr />
             </div>
 
             <div class="settings-subbox">
 
-                <h2 style="font-size: 18px" href="#supportModal" data-bs-toggle="modal"><img id="setting-icons" src="../assets/ui/support.png" alt="">&nbsp;Support</h2>
-                
+                <h2 style="font-size: 18px" href="#supportModal" data-bs-toggle="modal"><img id="setting-icons"
+                        src="../assets/ui/support.png" alt="">&nbsp;Support</h2>
+
                 <!-- Support Modal id="supportModal" -->
-                <div class="modal fade" id="supportModal" tabindex="-1" aria-labelledby="supportModalLabel" aria-hidden="true">
+                <div class="modal fade" id="supportModal" tabindex="-1" aria-labelledby="supportModalLabel"
+                    aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered">
                         <div class="modal-content">
 
                             <div class="modal-header">
                                 <h1 class="modal-title fs-5" id="supportModalLabel">Support</h1>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
                             </div>
 
                             <div class="modal-body">
@@ -83,26 +89,31 @@ Consider adding prompt for image. But as I understand, need a place to store the
 
                         </div>
                     </div>
-                </div>  
-                <hr/>
+                </div>
+                <hr />
             </div>
-            
+
             <div class="settings-subbox">
 
-                <h2 style="font-size: 18px" href="#aboutModal" data-bs-toggle="modal"><img id="setting-icons" src="../assets/ui/about.png" alt="">&nbsp;About Mikro</h2>
-                
+                <h2 style="font-size: 18px" href="#aboutModal" data-bs-toggle="modal"><img id="setting-icons"
+                        src="../assets/ui/about.png" alt="">&nbsp;About Mikro</h2>
+
                 <!-- About Modal id="aboutModal" -->
-                <div class="modal fade" id="aboutModal" tabindex="-1" aria-labelledby="aboutModalLabel" aria-hidden="true">
+                <div class="modal fade" id="aboutModal" tabindex="-1" aria-labelledby="aboutModalLabel"
+                    aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered">
                         <div class="modal-content">
 
                             <div class="modal-header">
                                 <h1 class="modal-title fs-5" id="aboutModalLabel">About Mikro</h1>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
                             </div>
 
                             <div class="modal-body">
-                                Mikro is a project aiming to increase financial inclusion and literacy among migrant workers in Singapore, by creating an accessible one-stop financial solution to help kickstart or improve migrant workers' knowledge on investing.
+                                Mikro is a project aiming to increase financial inclusion and literacy among migrant
+                                workers in Singapore, by creating an accessible one-stop financial solution to help
+                                kickstart or improve migrant workers' knowledge on investing.
                                 <br><br>
                             </div>
 
@@ -113,33 +124,38 @@ Consider adding prompt for image. But as I understand, need a place to store the
                         </div>
                     </div>
                 </div>
-                <hr/>
+                <hr />
             </div>
 
             <div class="settings-subbox">
 
-                <h2 style="font-size: 18px" href="#rateModal" data-bs-toggle="modal"><i id="" class="bx bx-star" alt=""></i>&nbsp;Rate us</h2>
-                
+                <h2 style="font-size: 18px" href="#rateModal" data-bs-toggle="modal"><i id="" class="bx bx-star"
+                        alt=""></i>&nbsp;Rate us</h2>
+
                 <!-- About Modal id="aboutModal" -->
-                <div class="modal fade" id="rateModal" tabindex="-1" aria-labelledby="rateModalLabel" aria-hidden="true">
+                <div class="modal fade" id="rateModal" tabindex="-1" aria-labelledby="rateModalLabel"
+                    aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered">
                         <div class="modal-content">
 
                             <div class="modal-header">
                                 <h1 class="modal-title fs-5" id="aboutModalLabel">How did you like Mikro?</h1>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
                             </div>
 
                             <div class="modal-body text-center">
-                                <button @click="Satisfied()" class="m-3 btn btn-primary" style="font-size: 40px; border-radius: 50%">😃</button>
-                                <button  @click="notSatisfied()" class="m-3 btn btn-primary" style="font-size: 40px; border-radius: 50%" >😶</button>
+                                <button @click="Satisfied()" class="m-3 btn btn-primary"
+                                    style="font-size: 40px; border-radius: 50%">😃</button>
+                                <button @click="notSatisfied()" class="m-3 btn btn-primary"
+                                    style="font-size: 40px; border-radius: 50%">😶</button>
                                 <br>
                                 Select One Emoji
-                                <br/>
-                                <br/>
+                                <br />
+                                <br />
                                 <p style="background-color: aliceblue">{{ message }}</p>
                             </div>
-                           
+
 
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -150,49 +166,48 @@ Consider adding prompt for image. But as I understand, need a place to store the
                 </div>
             </div>
         </div>
-        <hr/>
+        <hr />
     </div>
 </template>
 
 <script>
-    import NavigationBar from "../components/NavigationBar"
-    export default 
+import NavigationBar from "../components/NavigationBar"
+export default
     {
-    name: 'SettingsPage',
-    components: {NavigationBar},
-    data() {
-        return {
-            saveChangesBtn: "Save changes",
-            message: "",
-        }
-    },
-    methods: {
-        saveChangesBtnFunc() {
-            this.saveChangesBtn = "Changes saved!";
+        name: 'SettingsPage',
+        components: { NavigationBar },
+        data() {
+            return {
+                saveChangesBtn: "Save changes",
+                message: "",
+            }
+        },
+        methods: {
+            saveChangesBtnFunc() {
+                this.saveChangesBtn = "Changes saved!";
             },
 
-        notSatisfied() {
-            this.message = "Thanks for the input! Do leave us a review for us to improve! 😊"
-            return this.message
-        },
+            notSatisfied() {
+                this.message = "Thanks for the input! Do leave us a review for us to improve! 😊"
+                return this.message
+            },
 
-        Satisfied() {
-            this.message = "Thanks for the input! We will continue working to improve Mikro! 😊"
-            return this.message
+            Satisfied() {
+                this.message = "Thanks for the input! We will continue working to improve Mikro! 😊"
+                return this.message
+            }
         }
     }
-}
 
 
 </script>
 
 
 <style scoped>
-
-
 .skiptranslate {
     display: inline;
 }
+
 h1 {
     text-align: center;
 
@@ -203,7 +218,7 @@ h1 {
     height: 100vh;
     background: url("../assets/ui/settingsBg.png") no-repeat bottom right;
     background-color: aliceblue;
-    
+
 }
 
 
@@ -220,13 +235,13 @@ h1 {
     outline: none;
     border: none;
 
-    width:540px;
+    width: 540px;
     background-color: azure;
 }
 
 #card-outline {
     width: 100%;
-    background-color:#344c64;
+    background-color: #344c64;
 
 
     display: flex;
@@ -256,7 +271,7 @@ h1 {
 #editProfileModalPFPOverlay {
     height: 30px;
     width: 30px;
-    z-index:2;
+    z-index: 2;
     position: absolute;
     left: 0;
     top: 0;
@@ -264,7 +279,7 @@ h1 {
     bottom: 0;
     display: block;
     margin-top: 40px;
-    margin-left:auto;
+    margin-left: auto;
     margin-right: auto;
     margin-bottom: auto;
 }

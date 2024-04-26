@@ -1,6 +1,6 @@
 <template>
-    <NavigationBar/>
-    <br/>
+    <NavigationBar />
+    <br />
     <h3 style="margin-left: 75px" class="">My Progress</h3>
     <div class="modal" id="progressPopup" tabindex="-1" aria-labelledby="progressPopupLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
@@ -10,15 +10,15 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     <div class="d-flex flex-column justify-content-center align-items-center">
                         <img :src="require(`../assets/${pop_up_data.img_name}.png`)" style="height:200px; width:200px">
-                        <h2>{{pop_up_data.name}}</h2>
-                        <p>{{pop_up_data.desc}}</p>
-                        <p>You achieved this on {{pop_up_data.completedDate }}</p>
+                        <h2>{{ pop_up_data.name }}</h2>
+                        <p>{{ pop_up_data.desc }}</p>
+                        <p>You achieved this on {{ pop_up_data.completedDate }}</p>
                     </div>
                 </div>
 
             </div>
         </div>
-    </div>  
+    </div>
 
     <div id="progress" style="margin:0 0 35px 55px; padding: 0">
         <div class="">
@@ -36,9 +36,10 @@
                         <span style="font-size:min(6vw, 50px);">Chatur Ramalingam</span>
                     </div> -->
                     <div class="d-flex justify-content-center" style="width: 100%">
-                        <img    src="../assets/ui/chatur.webp" class="img-fluid me-3" 
-                                style="max-height: 100px; aspect-ratio: 1/1 ;object-fit:cover; border-radius:15px">
-                        <span style="font-size:min(6vw, 50px);" class="d-flex align-items-center">Chatur Ramalingam</span>
+                        <img src="../assets/ui/chatur.webp" class="img-fluid me-3"
+                            style="max-height: 100px; aspect-ratio: 1/1 ;object-fit:cover; border-radius:15px">
+                        <span style="font-size:min(6vw, 50px);" class="d-flex align-items-center">Chatur
+                            Ramalingam</span>
                     </div>
 
                 </div>
@@ -52,8 +53,7 @@
                             <img src="../assets/achievement.png" style="width:100%; max-width:">
                         </div>
 
-                        <div    class="text-center d-flex flex-column" 
-                                style="width:100%">
+                        <div class="text-center d-flex flex-column" style="width:100%">
 
                             <span style="font-size: min(3.5vw, 1rem)">Achievements</span>
                             <span style="font-size: min(2.5vw, 0.8rem)">21/32 completed</span>
@@ -68,8 +68,7 @@
                             <img src="../assets/badge.png" style="width:100%">
                         </div>
 
-                        <div    class="text-center d-flex flex-column" 
-                                style="width:100%">
+                        <div class="text-center d-flex flex-column" style="width:100%">
                             <span style="font-size: min(3.5vw, 1rem)">Badges</span>
                             <span style="font-size: min(2.5vw, 0.8rem)">23/35 received</span>
                         </div>
@@ -78,91 +77,96 @@
                 </div>
             </div>
 
-            
+
             <div id="recent-achievement-section">
-                <div class="d-flex align-items-center achievement-page-section-header" style="background-color:#2f4863d9; color:aliceblue">
+                <div class="d-flex align-items-center achievement-page-section-header"
+                    style="background-color:#2f4863d9; color:aliceblue">
                     <img src="../assets/achievement.png" class="col-2 p-2" style="max-width: 150px; max-height: 150px;">
-                    <span   class="col" 
-                            style="font-size:min(4.5vw, 1.25rem); font-weight: bold;">Recent Achievements 
+                    <span class="col" style="font-size:min(4.5vw, 1.25rem); font-weight: bold;">Recent Achievements
                     </span>
                 </div>
                 <div class="d-flex-block" style="background-color: aliceblue;">
-                    <div v-if ="data_length() <= 0" class="py-2">
-                        <span   class="d-flex align-items-center justify-content-center" 
-                                style="font-size:0.8rem;">
+                    <div v-if="data_length() <= 0" class="py-2">
+                        <span class="d-flex align-items-center justify-content-center" style="font-size:0.8rem;">
                             - No recent achievements to show -
                         </span>
                     </div>
                     <div v-else>
                         <div v-for="data in my_data" :key="data.aid" class="d-flex-block">
-                            <div v-if="data.type =='achievement'" @click="get_data_from_index(data.aid)">
+                            <div v-if="data.type == 'achievement'" @click="get_data_from_index(data.aid)">
                                 <div class="d-flex py-2" href="#progressPopup" data-bs-toggle="modal">
-                                    <img src="../assets/achievement.png" class="col-2 p-1" style="max-width: 150px; max-height: 150px;">
-                                    <div class="recent-achievement-details d-flex flex-column align-items-left justify-content-center col">
-                                        <span style="font-size:1rem;">{{data.name}}</span>
-                                        <span style="font-size:0.8rem;">{{data.description}}</span>
+                                    <img src="../assets/achievement.png" class="col-2 p-1"
+                                        style="max-width: 150px; max-height: 150px;">
+                                    <div
+                                        class="recent-achievement-details d-flex flex-column align-items-left justify-content-center col">
+                                        <span style="font-size:1rem;">{{ data.name }}</span>
+                                        <span style="font-size:0.8rem;">{{ data.description }}</span>
                                     </div>
                                 </div>
                                 <hr style="margin: 0;">
                             </div>
                         </div>
-                        
-                        <div style="background-color:aliceblue" class="achievement-page-section-end d-flex align-items-center justify-content-center p-2">
-                            <span class ="ms-3" style="font-size:1rem;">View more >> </span>
+
+                        <div style="background-color:aliceblue"
+                            class="achievement-page-section-end d-flex align-items-center justify-content-center p-2">
+                            <span class="ms-3" style="font-size:1rem;">View more >> </span>
                         </div>
                     </div>
 
-                </div> 
+                </div>
 
             </div>
             <div class="mt-1"></div>
             <div id="recent-badge-section">
-                
-                <div class="d-flex align-items-center achievement-page-section-header" style="background-color:#2f4863d9; color:aliceblue">
+
+                <div class="d-flex align-items-center achievement-page-section-header"
+                    style="background-color:#2f4863d9; color:aliceblue">
                     <img src="../assets/badge.png" class="col-2 p-2" style="max-width: 150px; max-height: 150px;">
-                    <span class ="col" style="font-size:min(4.5vw, 1.25rem); font-weight: bold;">Recent Badges </span>
+                    <span class="col" style="font-size:min(4.5vw, 1.25rem); font-weight: bold;">Recent Badges </span>
                 </div>
-                
+
                 <div class="d-flex-block" style="background-color: aliceblue;">
-                    <div v-if ="data_length() <= 0" class="py-2">
-                        <span   class="d-flex align-items-center justify-content-center" 
-                                style="font-size:0.8rem;">
+                    <div v-if="data_length() <= 0" class="py-2">
+                        <span class="d-flex align-items-center justify-content-center" style="font-size:0.8rem;">
                             - No recent badges to show -
                         </span>
                     </div>
                     <div v-else>
                         <div v-for="data in my_data" :key="data.aid" class="d-flex-block">
-                            <div v-if="data.type =='badge'" @click="get_data_from_index(data.aid)">
+                            <div v-if="data.type == 'badge'" @click="get_data_from_index(data.aid)">
                                 <div class="d-flex py-2" href="#progressPopup" data-bs-toggle="modal">
-                                    <img src="../assets/badge.png" class="col-2 p-1" style="max-width: 150px; max-height: 150px;">
-                                    <div class="recent-achievement-details d-flex flex-column align-items-left justify-content-center col">
-                                        <span style="font-size:1rem;">{{data.name}}</span>
-                                        <span style="font-size:0.8rem;">{{data.description}}</span>
+                                    <img src="../assets/badge.png" class="col-2 p-1"
+                                        style="max-width: 150px; max-height: 150px;">
+                                    <div
+                                        class="recent-achievement-details d-flex flex-column align-items-left justify-content-center col">
+                                        <span style="font-size:1rem;">{{ data.name }}</span>
+                                        <span style="font-size:0.8rem;">{{ data.description }}</span>
                                     </div>
                                 </div>
                                 <hr style="margin: 0;">
                             </div>
                         </div>
-                        
-                        <div style="background-color:aliceblue" class="achievement-page-section-end d-flex align-items-center justify-content-center p-2">
-                            <span class ="ms-3" style="font-size:1rem;">View more >> </span>
+
+                        <div style="background-color:aliceblue"
+                            class="achievement-page-section-end d-flex align-items-center justify-content-center p-2">
+                            <span class="ms-3" style="font-size:1rem;">View more >> </span>
                         </div>
                     </div>
 
-                </div> 
+                </div>
 
             </div>
 
         </div>
 
     </div>
-    
+
 </template>
 
 <script>
 // Initialize Firebase
 import NavigationBar from "../components/NavigationBar";
-    export default 
+export default
     {
         name: "ProgressPage",
         components: { NavigationBar },
@@ -170,19 +174,19 @@ import NavigationBar from "../components/NavigationBar";
 
         data() {
             return {
-                selected: {name: "", description: "", aid: ""},
+                selected: { name: "", description: "", aid: "" },
                 lessons: [{ Title: "The Basics of Investment", Subtitle: "Understand concepts of investment" }, { Title: "Dive into Investment", Subtitle: "" }
                 ],
-                my_data: 
+                my_data:
                 {
-                    '1a2b3c': {aid: 1, type: "badge", description: 'Finished 5 quizzes', name: 'Out of the woods', img_name: "badge", completedDate: "11/13/2022"},
-                    '1a2b3d': {aid: 2, type: "badge", description: 'Finished 3 quizzes', name: 'One step at a time', img_name: "badge", completedDate: '11/11/2022'},
-                    '1a2b3e': {aid: 3, type: "badge", description: 'Finished 1 quiz', name: 'Welcome!', img_name: "badge", completedDate: "11/12/2022"},
-                    '1a2b3f': {aid: 4, type: "achievement", description: 'Logged in for 5 days', name: 'We\'ll miss WAD2 😭', img_name: "achievement", completedDate:"11/12/2022"}
+                    '1a2b3c': { aid: 1, type: "badge", description: 'Finished 5 quizzes', name: 'Out of the woods', img_name: "badge", completedDate: "11/13/2022" },
+                    '1a2b3d': { aid: 2, type: "badge", description: 'Finished 3 quizzes', name: 'One step at a time', img_name: "badge", completedDate: '11/11/2022' },
+                    '1a2b3e': { aid: 3, type: "badge", description: 'Finished 1 quiz', name: 'Welcome!', img_name: "badge", completedDate: "11/12/2022" },
+                    '1a2b3f': { aid: 4, type: "achievement", description: 'Logged in for 5 days', name: 'We\'ll miss WAD2 😭', img_name: "achievement", completedDate: "11/12/2022" }
                 },
-                pop_up_data: 
+                pop_up_data:
                 {
-                    aid: 0, desc: '', name: '',img_name: 'badge', completedDate: ''
+                    aid: 0, desc: '', name: '', img_name: 'badge', completedDate: ''
                 }
             };
         },
@@ -197,7 +201,7 @@ import NavigationBar from "../components/NavigationBar";
                         this.pop_up_data.name = value.name
                         this.pop_up_data.img_name = value.img_name
                         var d = new Date(value.completedDate)
-                        this.pop_up_data.completedDate = d.getDate() + "/" + (d.getMonth()+1) + "/" + d.getFullYear()
+                        this.pop_up_data.completedDate = d.getDate() + "/" + (d.getMonth() + 1) + "/" + d.getFullYear()
                         return id;
                     }
                 }
@@ -222,12 +226,12 @@ import NavigationBar from "../components/NavigationBar";
 
     background-color: aliceblue;
     color: rgb(47, 72, 99);
- 
+
     border-radius: 15px;
-} 
+}
 
 .achievement-category-tab:hover {
-  box-shadow: 5px 5px #2f4863d9;
+    box-shadow: 5px 5px #2f4863d9;
 }
 
 .achievement-page-section-header {
@@ -249,6 +253,4 @@ import NavigationBar from "../components/NavigationBar";
 }
 </style>
 
-<style scoped>
-
-</style>
+<style scoped></style>

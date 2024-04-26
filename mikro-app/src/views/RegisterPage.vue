@@ -4,30 +4,35 @@
             <div class="row transition">
                 <div id="register-card" class="card col-sm-12 col-md-6 mx-auto rounded-0" style="margin-top: 8%">
                     <span id="card-outline" style="height:4px"></span>
-                    <img class="card-img-top mx-auto" src="../assets/ui/mikro_logo_trim.png" alt="mikro logo" style="max-width:250px;padding:50px">
+                    <img class="card-img-top mx-auto" src="../assets/ui/mikro_logo_trim.png" alt="mikro logo"
+                        style="max-width:250px;padding:50px">
 
                     <div class="card-body">
                         <form>
                             <div id="register_email" class="form-group" style="width: 100%;">
-                                <input type="text" class="form-control rounded-0" autofocus="autofocus" maxlength="25" id="registerInputUID" required="required" v-model="myemail">
+                                <input type="text" class="form-control rounded-0" autofocus="autofocus" maxlength="25"
+                                    id="registerInputUID" required="required" v-model="myemail">
                                 <span id="input-field-label">Email</span>
                                 <span id="input-field-underline"></span>
                             </div>
 
                             <div id="register_name" class="form-group mt-5" style="width: 100%;">
-                                <input type="text" class="form-control rounded-0" id="registerInputName" required="required" v-model="myname">
+                                <input type="text" class="form-control rounded-0" id="registerInputName"
+                                    required="required" v-model="myname">
                                 <span id="input-field-label">Name</span>
                                 <span id="input-field-underline"></span>
                             </div>
 
                             <div id="register_password" class="form-group mt-5" style="width: 100%;">
-                                <input type="password" class="form-control rounded-0" autofocus="autofocus" maxlength="25" id="registerPasswordUID" required="required" v-model="mypw">
+                                <input type="password" class="form-control rounded-0" autofocus="autofocus"
+                                    maxlength="25" id="registerPasswordUID" required="required" v-model="mypw">
                                 <span id="input-field-label">Password</span>
                                 <span id="input-field-underline"></span>
                             </div>
 
                             <div id="register_confirmpassword" class="form-group mt-5" style="width: 100%;">
-                                <input type="password" class="form-control rounded-0" id="registerInputConfirmPW" required="required" v-model="mysecondpw">
+                                <input type="password" class="form-control rounded-0" id="registerInputConfirmPW"
+                                    required="required" v-model="mysecondpw">
                                 <span id="input-field-label">Confirm Password</span>
                                 <span id="input-field-underline"></span>
                             </div>
@@ -36,17 +41,18 @@
 
                         <div>
                             <button id="register-btn" class="btn btn-primary w-100 mt-5" @click="register">
-                                <div id="register-btn-container" >
+                                <div id="register-btn-container">
                                     <span style="font-size:large">Register</span>
-                                    <img id="register-btn-img" src="../assets/ui/enter-icon.png" alt=""><div id="register-btn-overlay"></div>
+                                    <img id="register-btn-img" src="../assets/ui/enter-icon.png" alt="">
+                                    <div id="register-btn-overlay"></div>
                                 </div>
                             </button>
                         </div>
 
                         <div class="d-flex justify-content-start mt-3" style="font-size: 14px">
-                            Already have an account?&nbsp; 
+                            Already have an account?&nbsp;
                             <router-link to="Login">
-                                 Sign in here
+                                Sign in here
                             </router-link>
                         </div>
                     </div>
@@ -56,26 +62,25 @@
             </div>
         </div>
     </div>
-  </template>
+</template>
 
 <script setup>
 
 </script>
 <script>
-    import { useRouter } from 'vue-router'
-    import { ref, child, get, set } from "firebase/database"
-    import { database, auth } from "../main.js"
-    import { createUserWithEmailAndPassword } from "firebase/auth"
+import { useRouter } from 'vue-router'
+import { ref, child, get, set } from "firebase/database"
+import { database, auth } from "../main.js"
+import { createUserWithEmailAndPassword } from "firebase/auth"
 
-    export default 
+export default
     {
         name: 'RegisterPage',
-        props: 
+        props:
         {
-    
+
         },
-        data() 
-        {
+        data() {
             return {
                 myemail: "",
                 mypw: "",
@@ -85,7 +90,7 @@
                 router: useRouter()
             }
         },
-        methods: 
+        methods:
         {
             register() {
                 if (this.mypw != this.mysecondpw) {
@@ -94,55 +99,54 @@
                     this.myemail = "";
                     this.mypw = "";
                     this.myname = "";
-                    this. mysecondpw = "";
+                    this.mysecondpw = "";
 
                     return;
                 }
                 createUserWithEmailAndPassword(auth, this.myemail, this.mypw)
-                .then((data) => {
-                    console.log("Success!", data);
+                    .then((data) => {
+                        console.log("Success!", data);
 
-                    set(ref(database, 'users/' + auth.currentUser.uid), {
-                        email: this.myemail,
-                        name: this.myname,
-                    });
+                        set(ref(database, 'users/' + auth.currentUser.uid), {
+                            email: this.myemail,
+                            name: this.myname,
+                        });
 
-                    get(child(ref(database), `achievements/`)).then((snapshot) => {
-                        if (snapshot.exists()) {
-                            let achievements_badges = {}
+                        get(child(ref(database), `achievements/`)).then((snapshot) => {
+                            if (snapshot.exists()) {
+                                let achievements_badges = {}
 
-                            for (const [id, value] of Object.entries(snapshot.val())) {
+                                for (const [id, value] of Object.entries(snapshot.val())) {
 
-                                console.log(id === 0)
+                                    console.log(id === 0)
 
-                                achievements_badges[value.aid] = 0
-                                set(ref(database, 'users/' + auth.currentUser.uid + '/achievements_badges/'), {
-                                    ongoing: achievements_badges
-                                });
+                                    achievements_badges[value.aid] = 0
+                                    set(ref(database, 'users/' + auth.currentUser.uid + '/achievements_badges/'), {
+                                        ongoing: achievements_badges
+                                    });
+                                }
+
+                                this.router.push('/login')
+
+                            } else {
+                                console.log("No data available");
                             }
-
-                            this.router.push('/login')
-                            
-                        } else {
-                            console.log("No data available");
-                        }
-                    }).catch((error) => {
-                        console.error(error);
+                        }).catch((error) => {
+                            console.error(error);
+                        });
+                    })
+                    .catch((e) => {
+                        console.log(e.code);
                     });
-                })
-                .catch((e) => {
-                    console.log(e.code);
-                });
             }
         }
     }
 </script>
 
 <style>
-
 .transition {
-    padding-left:25px;
-    width:100%;
+    padding-left: 25px;
+    width: 100%;
 }
 
 #register-card {
@@ -156,25 +160,32 @@
 
 #card-outline {
     width: 100%;
-    background-color:#344c64;
+    background-color: #344c64;
     display: flex;
     justify-content: center;
 }
+
 .form-control:focus {
-  border-color: none;
-  box-shadow: none;
+    border-color: none;
+    box-shadow: none;
 }
+
 .form-control:selected {
     border-color: #2f4863;
 }
-.btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
+
+.btn-primary,
+.btn-primary:hover,
+.btn-primary:active,
+.btn-primary:visited {
     background-color: #2f4863 !important;
     border-color: #2f4863 !important;
 }
 
-.btn-outline-primary, .btn-outline-primary:hover {
+.btn-outline-primary,
+.btn-outline-primary:hover {
     border-color: #2f4863 !important;
-    color:#2f4863 !important;
+    color: #2f4863 !important;
     background-color: aliceblue;
 }
 </style>
@@ -212,8 +223,8 @@
     pointer-events: none;
 }
 
-.form-group input:valid ~ #input-field-label,
-.form-group input:focus ~ #input-field-label {
+.form-group input:valid~#input-field-label,
+.form-group input:focus~#input-field-label {
     color: #344c64;
     transform: translate(-20px, -37px) scale(0.8);
 }
@@ -224,15 +235,15 @@
     bottom: 0;
     width: 100%;
     height: 2px;
-    background-color:#2f4863;
+    background-color: #2f4863;
     border-radius: 4px;
     transition: 0.3s;
     pointer-events: none;
     z-index: 1;
 }
 
-.form-group input:focus ~ #input-field-underline,
-.form-group input:valid ~ #input-field-underline {
+.form-group input:focus~#input-field-underline,
+.form-group input:valid~#input-field-underline {
     height: 50px;
 }
 
@@ -248,7 +259,7 @@
     justify-content: center;
     align-items: center;
 
-    font-size:25px; 
+    font-size: 25px;
 
     height: 35px;
     padding-left: 35px;
@@ -262,13 +273,13 @@
 
 #register-btn-container #register-btn-img {
 
-height: 20px;
+    height: 20px;
 
-transform: translateX(10px);
+    transform: translateX(10px);
 }
 
 #register-btn-container #register-btn-overlay {
-    
+
     height: 20px;
     width: 20px;
 
