@@ -168,8 +168,6 @@ export default
 </script>
 
 <style>
-body {}
-
 .transition {
     padding-left: 25px;
     width: 100%;

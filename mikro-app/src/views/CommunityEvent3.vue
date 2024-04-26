@@ -4,7 +4,7 @@
       <i class="bx bx-arrow-back"></i>
     </router-link>
 
-    <div class="card" style="font-size: 12px; height: ;">
+    <div class="card" style="font-size: 12px;">
       <img class="card-img-top" src="../assets/ui/dividend_community.jpg" style="width: 100%; height: 50%"
         alt="Card image cap">
       <div class="card-body">

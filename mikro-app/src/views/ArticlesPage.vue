@@ -25,7 +25,7 @@
                 <div v-for="article of articles" :key="article.id" class=" col-md-4 p-1 card mb-3"
                     style="font-size:12px">
                     <span v-if="article.banner_image">
-                        <img class="card-img-top w-100" style="height: max-height: 300px; width: auto;"
+                        <img class="card-img-top w-100" style="max-height: 300px; width: auto;"
                             :src="article.banner_image" />
                     </span>
 
